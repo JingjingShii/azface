@@ -46,13 +46,9 @@ $ ml configure azface
 
 ## Command Line Tools
 
-In addition to the *demo* presented below, the *azface* package
-provides a number of useful command line tools. Below we demonstrate a
-number of these. Most commands take an image as a parameter which may
-be a url or a path to a local file.  Commands include *detect* and
-*similar* and being pipeline oriented means the output will be
-CSV-like text that makes them easily incorporated into a command line
-pipeline.
+An Azure resource is required to access this service (and to run this
+demo). See the README for details of a free subscription. Then you can
+provide the key and the endpoint information here.
 
 **detect**
 
@@ -65,6 +61,65 @@ $ ml detect azface ~/.mlhub/azface/photo/identification/identification1.jpg
 495 238 495 320 577 320 577 238,4.0,female,no glasses,happiness,no occlusion
 211 162 211 243 292 243 292 162,6.0,male,no glasses,happiness,no occlusion
 ```
+![](result/azface02.png?raw=true)
+```console
+Detecting faces in photo:
+  photo/detection/detection6.jpg
+Please close each image window (Ctrl-w) to proceed.
+```
+![](result/azface03.png?raw=true)
+```console
+Detecting faces in photo:
+  photo/detection/detection1.jpg
+Please close each image window (Ctrl-w) to proceed.
+```
+![](result/azface04.png?raw=true)
+```console
+Detecting faces in photo:
+  photo/detection/detection5.jpg
+Please close each image window (Ctrl-w) to proceed.
+```
+![](result/azface05.png?raw=true)
+```console
+Detecting faces in photo:
+  photo/detection/detection4.jpg
+Please close each image window (Ctrl-w) to proceed.
+```
+![](result/azface06.png?raw=true)
+```console
+Detecting faces in the target photo:
+  photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg
+
+Detecting faces in the candidate photo:
+  photo/identification/identification1.jpg
+
+Matching the face No. 0 ...
+
+Please close each image window (Ctrl-w) to proceed.
+```
+![](result/azface07.png?raw=true)
+```console
+To detect faces in provided photos:
+
+  $ ml detect azface
+```
+
+## Commands ##
+
+Besides the `demo` command, other commands such as `detect` and
+`similar` are also provided, but they are more pipeline oriented,
+which means the output will be CSV-like text that makes them easily be
+incorporated into a command line pipeline.
+
+* To detect faces in a photo:
+
+  ```console
+  $ ml detect azface ~/.mlhub/azface/photo/identification/identification1.jpg
+  302 202 302 315 415 315 415 202,31.0,male,no glasses,happiness,no occlusion
+  398 238 398 329 489 329 489 238,30.0,female,no glasses,happiness,no occlusion
+  495 238 495 320 577 320 577 238,4.0,female,no glasses,happiness,no occlusion
+  211 162 211 243 292 243 292 162,6.0,male,no glasses,happiness,no occlusion
+  ```
   
   It will ask for your Azure face API key and endpoint the first time
   you use this command, then it will detect faces in the photo you
