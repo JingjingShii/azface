@@ -23,10 +23,12 @@ dependencies:
     - docs/README.md
     - docs/photo: docs/photo
     - demo.py
+    - gui.py
     - detect.py
     - similar.py
     - utils.py
 commands:
   demo: Demostrate face detection and matching.
+  gui: Graphic user interface to demo the tool.
   detect: Detect faces in provided photos.
   similar: Find similar faces between photos.
