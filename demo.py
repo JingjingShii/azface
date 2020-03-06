@@ -13,7 +13,12 @@ Cognitive Services. This cloud service accepts images and can perform
 various analyses of the images, returning the results locally.
 """)
 
-from azure.cognitiveservices.vision.face.face_client import FaceClient  # The main interface to access Azure face API
+from packaging import version
+import azure.cognitiveservices.vision.face as faceAPI
+if version.parse(faceAPI.__version__) <= version.parse('0.3.0'):
+    from azure.cognitiveservices.vision.face.face_client import FaceClient  # The main interface to access Azure face API
+else:
+    from azure.cognitiveservices.vision.face import FaceClient
 from mlhub.pkg import azkey
 from msrest.authentication import CognitiveServicesCredentials  # To hold the subscription key
 from utils import (
@@ -52,7 +57,7 @@ client = FaceClient(endpoint, credentials)  # Setup Azure face API client
 # Setup
 
 face_attrs = ['age', 'gender', 'glasses', 'emotion', 'occlusion']
-detect_photo_dir = 'photo/detection'
+detect_photo_dir = 'docs/photo/detection'
 
 # Detection
 
@@ -69,8 +74,8 @@ for path in list_files(detect_photo_dir):
 
 # Setup
 
-target_url = 'photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg'
-candidate_url = 'photo/identification/identification1.jpg'
+target_url = 'docs/photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg'
+candidate_url = 'docs/photo/identification/identification1.jpg'
 
 # Memorize target faces
 
