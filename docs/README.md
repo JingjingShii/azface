@@ -44,6 +44,13 @@ $ ml install azface
 $ ml configure azface
 ```
 
+* To run a canned demonstration or an interactive GUI:
+
+```console
+$ ml demo azface
+$ ml gui azface
+```
+
 ## Command Line Tools
 
 An Azure resource is required to access this service (and to run this
