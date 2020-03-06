@@ -2,8 +2,7 @@
 
 This [MLHub](https://mlhub.ai) package provides a quick introduction
 to the pre-built Azure Face models. This service identifies faces
-within a photo. This package is part of the [Azure on
-MLHub](https://github.com/Azure/mlhub) repository.
+within a photo.
 
 In addition to the *demo* commed this package provides a collection of
 commands that turn the service into useful *command line
