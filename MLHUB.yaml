@@ -3,7 +3,7 @@ meta:
   name      : azface
   title     : Azure Face API demo.
   languages : py
-  version   : 2.1.3
+  version   : 2.1.4
   keywords  : face recognition, python3, computer vision
   difficulty: 1
   license   : gpl3
