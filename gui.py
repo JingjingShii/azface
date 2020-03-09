@@ -136,7 +136,7 @@ class MLHub(wx.Frame):
             self.st_results.SetLabel(NO_RESULTS)
         else:
             r = re.sub(r"(\d+)\.\d+", r"\1 year old",
-                       re.sub(",", "\n",
+                       re.sub(r"(.*?),(.*?),(.*?),(.*?),(.*?)", r"\1 \2\n\3, \4, \5",
                               re.sub(r"(\d+ \d+ \d+ \d+ \d+ \d+ \d+ \d+,)", r"\n",
                                      results.decode("utf-8"))))
             self.st_results.SetLabel(r)
