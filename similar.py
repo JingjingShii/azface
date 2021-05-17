@@ -4,26 +4,21 @@ import os
 from packaging import version
 import azure.cognitiveservices.vision.face as faceAPI
 if version.parse(faceAPI.__version__) <= version.parse('0.3.0'):
-    from azure.cognitiveservices.vision.face.face_client import FaceClient  # The main interface to access Azure face API
+    from azure.cognitiveservices.vision.face._face_client import FaceClient  # The main interface to access Azure face API
 else:
     from azure.cognitiveservices.vision.face import FaceClient
 
 from msrest.authentication import CognitiveServicesCredentials  # To hold the subscription key
 
-from mlhub.pkg import (
-    azkey,
-    is_url,
-)
+from mlhub.pkg import is_url
 
 from utils import (
-    SERVICE,
     azface_detect,
     azface_similar,
     get_abspath,
-    get_face_api_key_endpoint,
-    option_parser,
     print_similar_results,
     stop,
+    request_priv_info
 )
 
 # ----------------------------------------------------------------------
@@ -32,7 +27,6 @@ from utils import (
 
 parser = argparse.ArgumentParser(
     prog='similar',
-    parents=[option_parser],
     description='Find similar faces between images.'
 )
 
@@ -51,7 +45,6 @@ args = parser.parse_args()
 # ----------------------------------------------------------------------
 target_url = args.target if is_url(args.target) else get_abspath(args.target)  # Get the photo of target faces
 candidate_url = args.candidate if is_url(args.candidate) else get_abspath(args.candidate)  # Get the photo to be checked
-subscription_key, endpoint = args.key, args.endpoint
 
 if os.path.isdir(target_url) or os.path.isdir(candidate_url):
     stop("Only one photo allowed!")
@@ -60,8 +53,8 @@ if os.path.isdir(target_url) or os.path.isdir(candidate_url):
 # Prepare Face API client
 # ----------------------------------------------------------------------
 
-if not subscription_key or not endpoint:  # Request subscription key and endpoint from user.
-    subscription_key, endpoint = get_face_api_key_endpoint(*azkey(args.key_file, SERVICE, verbose=False))
+# Request subscription key and endpoint from user.
+subscription_key, endpoint = request_priv_info()
 
 credentials = CognitiveServicesCredentials(subscription_key)  # Set credentials
 client = FaceClient(endpoint, credentials)  # Setup Azure face API client
