@@ -67,31 +67,31 @@ $ ml detect azface ~/.mlhub/azface/photo/identification/identification1.jpg
 495 238 495 320 577 320 577 238,4.0,female,no glasses,happiness,no occlusion
 211 162 211 243 292 243 292 162,6.0,male,no glasses,happiness,no occlusion
 ```
-![](result/azface02.png?raw=true)
+![](docs/result/azface02.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection6.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface03.png?raw=true)
+![](docs/result/azface03.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection1.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface04.png?raw=true)
+![](docs/result/azface04.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection5.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface05.png?raw=true)
+![](docs/result/azface05.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection4.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface06.png?raw=true)
+![](docs/result/azface06.png?raw=true)
 ```console
 Detecting faces in the target photo:
   photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg
@@ -103,7 +103,7 @@ Matching the face No. 0 ...
 
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface07.png?raw=true)
+![](docs/result/azface07.png?raw=true)
 ```console
 To detect faces in provided photos:
 
@@ -174,7 +174,7 @@ $ ml similar azface ~/.mlhub/azface/photo/PersonGroup/Family1-Dad-Bill/Family1-D
 
 * To see how many faces in a photo (for example,
   `~/.mlhub/azface/photo/identification/identification1.jpg`)
-  ![](photo/identification/identification1.jpg?raw=true)
+  ![](docs/photo/identification/identification1.jpg?raw=true)
 
 ```console
 $ ml detect azface ~/.mlhub/azface/photo/identification/identification1.jpg | wc -l
@@ -204,15 +204,15 @@ $ ml detect azface ~/.mlhub/azface/photo/identification/identification1.jpg |
   xargs -I@ bash -c 'convert @'
 $ xdg-open result.png
 ```
-  ![](result/azface08.png?raw=true)
+  ![](docs/result/azface08.png?raw=true)
 
 * To see how many faces in a photo
   (`~/.mlhub/azface/photo/identification/identification1.jpg`)
-  ![](photo/identification/identification1.jpg?raw=true)
+  ![](docs/photo/identification/identification1.jpg?raw=true)
   
   similar to that in another photo
   (`~/.mlhub/azface/photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg`):
-  ![](photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg?raw=true)
+  ![](docs/photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg?raw=true)
 
 ```console
 $ ml similar azface ~/.mlhub/azface/photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg ~/.mlhub/azface/photo/identification/identification1.jpg | 
@@ -253,7 +253,7 @@ done
 ```console
 $ bash result.sh ~/.mlhub/azface/photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg ~/.mlhub/azface/photo/identification/identification1.jpg
 ```
-  ![](result/azface09.png?raw=true)
+  ![](docs/result/azface09.png?raw=true)
 
 * To count the number of faces in a crowd (for example, 
   `http://www.allwhitebackground.com/images/3/3818.jpg`)
@@ -288,7 +288,7 @@ $ ml detect azface  3818.jpg |
 $ eog result.png 
 ```
 
-![](photo/3818bb.png?raw=true)
+![](docs/photo/3818bb.png?raw=true)
 
 * How many might be wearing a cap (have their forehead occluded):
 
@@ -311,7 +311,7 @@ $ ml detect azface 3818.jpg |
 
 $ eog 3818cap.png
 ```
-![](photo/3818cap.png?raw=true)
+![](docs/photo/3818cap.png?raw=true)
 
 
 ## Demonstration
@@ -341,37 +341,37 @@ Detecting faces in photo:
   photo/detection/detection2.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface01.png?raw=true)
+![](docs/result/azface01.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection3.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface02.png?raw=true)
+![](docs/result/azface02.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection6.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface03.png?raw=true)
+![](docs/result/azface03.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection1.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface04.png?raw=true)
+![](docs/result/azface04.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection5.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface05.png?raw=true)
+![](docs/result/azface05.png?raw=true)
 ```console
 Detecting faces in photo:
   photo/detection/detection4.jpg
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface06.png?raw=true)
+![](docs/result/azface06.png?raw=true)
 ```console
 Detecting faces in the target photo:
   photo/PersonGroup/Family1-Dad-Bill/Family1-Dad1.jpg
@@ -383,7 +383,7 @@ Matching the face No. 0 ...
 
 Please close each image window (Ctrl-w) to proceed.
 ```
-![](result/azface07.png?raw=true)
+![](docs/result/azface07.png?raw=true)
 ```console
 To detect faces in provided photos:
 

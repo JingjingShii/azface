@@ -13,8 +13,7 @@ import urllib.parse
 import urllib.request
 import uuid
 
-from mlhub import pkg as mlpkg
-from mlhub.pkg import is_url, get_private
+from mlhub.pkg import is_url, get_private, get_cmd_cwd
 
 # ----------------------------------------------------------------------
 # Constants
@@ -55,7 +54,7 @@ def get_abspath(path):
 
     path = os.path.expanduser(path)
     if not os.path.isabs(path):
-        path = os.path.join(mlpkg.get_cmd_cwd(), path)
+        path = os.path.join(get_cmd_cwd(), path)
 
     return os.path.abspath(path)
 
