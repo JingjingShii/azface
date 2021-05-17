@@ -22,7 +22,7 @@ dependencies:
     - azure-cognitiveservices-vision-face
     - numpy>=1.14.5
   files:
-    - README.md
+    - docs/README.md: README.md
     - docs/photo: docs/photo
     - demo.py
     - gui.py
