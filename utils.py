@@ -14,7 +14,7 @@ import urllib.request
 import uuid
 
 from mlhub import utils as mlutils
-from mlhub.pkg import is_url
+from mlhub.pkg import is_url, get_private
 
 # ----------------------------------------------------------------------
 # Constants
@@ -540,3 +540,20 @@ def azface_add(client, img_url, name, person=None):
             client.person_group_person.add_face_from_url(person_group_id, person.person_id, file)
 
     return person
+
+# ----------------------------------------------------------------------
+# Request subscription key and endpoint from user.
+# ----------------------------------------------------------------------
+
+def reuqest_priv_info():
+    PRIVATE_FILE = "private.json"
+
+    path = os.path.join(os.getcwd(), PRIVATE_FILE)
+
+    private_dic = get_private(path, "azface")
+
+    subscription_key = private_dic["Face API"]["key"]
+
+    endpoint = private_dic["Face API"]["endpoint"]
+    return subscription_key, endpoint
+

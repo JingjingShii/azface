@@ -16,10 +16,9 @@ various analyses of the images, returning the results locally.
 from packaging import version
 import azure.cognitiveservices.vision.face as faceAPI
 if version.parse(faceAPI.__version__) <= version.parse('0.3.0'):
-    from azure.cognitiveservices.vision.face.face_client import FaceClient  # The main interface to access Azure face API
+    from azure.cognitiveservices.vision.face._face_client import FaceClient  # The main interface to access Azure face API
 else:
     from azure.cognitiveservices.vision.face import FaceClient
-from mlhub.pkg import azkey
 from msrest.authentication import CognitiveServicesCredentials  # To hold the subscription key
 from utils import (
     KEY_FILE,
@@ -30,6 +29,7 @@ from utils import (
     list_files,
     show_detection_results,
     show_similar_results,
+    reuqest_priv_info
 )
 
 
@@ -39,7 +39,8 @@ from utils import (
 
 # Request subscription key and endpoint from user.
 
-subscription_key, endpoint = get_face_api_key_endpoint(*azkey(KEY_FILE, SERVICE))
+key, endpoint = reuqest_priv_info()
+subscription_key, endpoint = get_face_api_key_endpoint(key, endpoint)
 
 # Set credentials.
 
