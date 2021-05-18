@@ -4,18 +4,19 @@ This [MLHub](https://mlhub.ai) package provides a quick introduction
 to the pre-built Azure Face models. This service identifies faces
 within a photo.
 
-In addition to the *demo* commed this package provides a collection of
-commands that turn the service into useful *command line
-tools* for detecting faces in supplied photos together with age,
-gender, expression, and other observations about the face, and
-identifying faces similar to a given face in a photo.
+In addition to the **demo** command this package provides a collection
+of commands that turn the service into useful *command line tools* for
+detecting faces in supplied photos together with age, gender,
+expression, and other observations about the face, and identifying
+faces similar to a given face in a photo.
 
-A free Azure subscription allowing up to 30,000 transactions per month
-is available from https://azure.microsoft.com/free/.  After
-subscribing visit https://ms.portal.azure.com and Create a resource
-under AI and Machine Learning called Face.  Once created you can
-access the web API subscription key from the portal.  This will be
-prompted for in the demo.
+A free Azure subscription allowing up to 20 calls per minute and up to
+30,000 transactions per month is available from
+https://azure.microsoft.com/free/.  After subscribing visit
+https://ms.portal.azure.com and Create a resource under AI and Machine
+Learning called Face.  Once created you can access the web API
+subscription Keys and Endpoint from the portal.  This will be prompted
+for during **configure**.
 
 Please note that these Azure models, unlike the MLHub models in
 general, use *closed source services* which have no guarantee of
