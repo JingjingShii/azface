@@ -13,8 +13,7 @@ import urllib.parse
 import urllib.request
 import uuid
 
-from mlhub import utils as mlutils
-from mlhub.pkg import is_url
+from mlhub.pkg import is_url, get_private, get_cmd_cwd
 
 # ----------------------------------------------------------------------
 # Constants
@@ -34,30 +33,11 @@ KEY_FILE = os.path.join(os.getcwd(), "private.txt")
 # Command line argument parser
 # ----------------------------------------------------------------------
 
-option_parser = argparse.ArgumentParser(add_help=False)
-
-option_parser.add_argument(
-    '--key',
-    type=str,
-    help='Azure face API subscription key')
-
-option_parser.add_argument(
-    '--key-file',
-    type=str,
-    help='file that stores Azure face API subscription key',
-    default=KEY_FILE)
-
 # **Note**:
 # 1. The endpoint URL varies depending on the region of your service and can be found at Overview page of your service.
 #    See 'https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236'
 # 1. For Azure face API for Python, endpoint should omit the trailing part of
 #    'https://southeastasia.api.cognitive.microsoft.com/face/v1.0'
-
-option_parser.add_argument(
-    '--endpoint',
-    type=str,
-    help='endpoint of Azure face API service')
-
 
 # ----------------------------------------------------------------------
 # File, folder, and I/O
@@ -74,7 +54,7 @@ def get_abspath(path):
 
     path = os.path.expanduser(path)
     if not os.path.isabs(path):
-        path = os.path.join(mlutils.get_cmd_cwd(), path)
+        path = os.path.join(get_cmd_cwd(), path)
 
     return os.path.abspath(path)
 
@@ -540,3 +520,20 @@ def azface_add(client, img_url, name, person=None):
             client.person_group_person.add_face_from_url(person_group_id, person.person_id, file)
 
     return person
+
+# ----------------------------------------------------------------------
+# Request subscription key and endpoint from user.
+# ----------------------------------------------------------------------
+
+def request_priv_info():
+    PRIVATE_FILE = "private.json"
+
+    path = os.path.join(os.getcwd(), PRIVATE_FILE)
+
+    private_dic = get_private(path, "azface")
+
+    subscription_key = private_dic["Face API"]["key"]
+
+    endpoint = private_dic["Face API"]["endpoint"]
+    return subscription_key, endpoint
+

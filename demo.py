@@ -3,33 +3,33 @@
 # Author: Simon.Zhao@microsoft.com
 #
 # This demo is based on the Azure Cognitive Services Face API Quick Start
+from mlhub.pkg import mlask, mlcat
 
-print("""=============
-Face Services
-=============
 
+mlcat("Face Services","""
 Welcome to a demo of the pre-built models for Face provided through Azure's 
 Cognitive Services. This cloud service accepts images and can perform 
 various analyses of the images, returning the results locally.
+
+Next, seven images with their analyses will be shown on your screen. 
 """)
+
+mlask()
 
 from packaging import version
 import azure.cognitiveservices.vision.face as faceAPI
 if version.parse(faceAPI.__version__) <= version.parse('0.3.0'):
-    from azure.cognitiveservices.vision.face.face_client import FaceClient  # The main interface to access Azure face API
+    from azure.cognitiveservices.vision.face._face_client import FaceClient  # The main interface to access Azure face API
 else:
     from azure.cognitiveservices.vision.face import FaceClient
-from mlhub.pkg import azkey
 from msrest.authentication import CognitiveServicesCredentials  # To hold the subscription key
 from utils import (
-    KEY_FILE,
-    SERVICE,
     azface_detect,
     azface_similar,
-    get_face_api_key_endpoint,
     list_files,
     show_detection_results,
     show_similar_results,
+    request_priv_info
 )
 
 
@@ -38,8 +38,7 @@ from utils import (
 # ----------------------------------------------------------------------
 
 # Request subscription key and endpoint from user.
-
-subscription_key, endpoint = get_face_api_key_endpoint(*azkey(KEY_FILE, SERVICE))
+subscription_key, endpoint = request_priv_info()
 
 # Set credentials.
 
