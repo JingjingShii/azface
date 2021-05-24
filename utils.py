@@ -530,9 +530,7 @@ def request_priv_info():
 
     path = os.path.join(os.getcwd(), PRIVATE_FILE)
 
-    values = get_private(path, "azface", "Face API")
-
-    subscription_key, endpoint = values
+    subscription_key, endpoint = get_private(path, "azface", "Face API")
 
     return subscription_key, endpoint
 
