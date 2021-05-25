@@ -3,7 +3,7 @@
 # Author: Simon.Zhao@microsoft.com
 #
 # This demo is based on the Azure Cognitive Services Face API Quick Start
-from mlhub.pkg import mlask, mlcat
+from mlhub.pkg import mlask, mlcat, get_private
 
 
 mlcat("Face Services","""
@@ -29,7 +29,6 @@ from utils import (
     list_files,
     show_detection_results,
     show_similar_results,
-    request_priv_info
 )
 
 
@@ -38,7 +37,7 @@ from utils import (
 # ----------------------------------------------------------------------
 
 # Request subscription key and endpoint from user.
-subscription_key, endpoint = request_priv_info()
+subscription_key, endpoint = get_private()
 
 # Set credentials.
 

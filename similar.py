@@ -10,7 +10,7 @@ else:
 
 from msrest.authentication import CognitiveServicesCredentials  # To hold the subscription key
 
-from mlhub.pkg import is_url
+from mlhub.pkg import is_url, get_private
 
 from utils import (
     azface_detect,
@@ -18,7 +18,6 @@ from utils import (
     get_abspath,
     print_similar_results,
     stop,
-    request_priv_info
 )
 
 # ----------------------------------------------------------------------
@@ -54,7 +53,7 @@ if os.path.isdir(target_url) or os.path.isdir(candidate_url):
 # ----------------------------------------------------------------------
 
 # Request subscription key and endpoint from user.
-subscription_key, endpoint = request_priv_info()
+subscription_key, endpoint = get_private()
 
 credentials = CognitiveServicesCredentials(subscription_key)  # Set credentials
 client = FaceClient(endpoint, credentials)  # Setup Azure face API client

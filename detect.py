@@ -8,13 +8,12 @@ else:
     from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials  # To hold the subscription key
 
-from mlhub.pkg import is_url
+from mlhub.pkg import is_url, get_private
 
 from utils import (
     azface_detect,
     get_abspath,
     print_detection_results,
-    request_priv_info
 )
 
 
@@ -46,7 +45,7 @@ face_attrs = ['age', 'gender', 'glasses', 'emotion', 'occlusion']
 # ----------------------------------------------------------------------
 
 # Request subscription key and endpoint from user.
-subscription_key, endpoint = request_priv_info()
+subscription_key, endpoint = get_private()
 
 credentials = CognitiveServicesCredentials(subscription_key)  # Set credentials
 client = FaceClient(endpoint, credentials)  # Setup Azure face API client
